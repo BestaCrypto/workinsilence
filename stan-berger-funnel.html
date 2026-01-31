@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stan Berger - Your Shadow Operator for 6-Figure Digital Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0A1628;
+            --dark-blue: #1B2B4F;
+            --blue: #2D4A7C;
+            --accent-blue: #4A90E2;
+            --light-blue: #6BB6FF;
+            --cream: #FAF9F6;
+            --gold: #FFB84D;
+            --gradient-1: linear-gradient(135deg, #0A1628 0%, #1B2B4F 50%, #2D4A7C 100%);
+            --gradient-2: linear-gradient(135deg, #4A90E2 0%, #2D4A7C 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-1);
+            color: white;
+            padding: 80px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--light-blue);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5.5vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--light-blue), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2vw, 24px);
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 800px;
+            margin: 0 auto 48px;
+            font-weight: 400;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 20px 48px;
+            background: var(--gradient-2);
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            color: var(--navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            font-size: clamp(16px, 1.8vw, 22px);
+            color: var(--blue);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            padding: 40px 32px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(74, 144, 226, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .result-number {
+            font-size: 48px;
+            font-weight: 900;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .result-label {
+            font-size: 18px;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 0;
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .problem-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .problem-content h2 {
+            font-size: clamp(32px, 4vw, 52px);
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        .problem-list {
+            text-align: left;
+            max-width: 700px;
+            margin: 48px auto;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .problem-item-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .problem-item-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Solution/System Section */
+        .system-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .system-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+
+        .system-intro h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .system-intro p {
+            font-size: 20px;
+            color: var(--blue);
+        }
+
+        .system-steps {
+            display: grid;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .step-content p {
+            font-size: 18px;
+            color: var(--blue);
+            line-height: 1.7;
+        }
+
+        /* Image Section - Stan's Photo */
+        .stan-photo-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .stan-photo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .stan-image {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(10, 22, 40, 0.2);
+            object-fit: cover;
+        }
+
+        .stan-bio h2 {
+            font-size: clamp(32px, 3.5vw, 48px);
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .stan-bio p {
+            font-size: 18px;
+            color: var(--blue);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .credential-icon {
+            font-size: 24px;
+        }
+
+        .credential-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 40px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark-blue) 100%);
+            color: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.3);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+
+        /* Results Image Section */
+        .results-proof-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .results-proof-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .results-proof-container h2 {
+            font-size: clamp(32px, 4vw, 52px);
+            color: var(--navy);
+            margin-bottom: 48px;
+        }
+
+        .results-image {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(10, 22, 40, 0.15);
+            border: 8px solid white;
+        }
+
+        /* CTA Section */
+        .final-cta-section {
+            padding: 120px 0;
+            background: var(--gradient-1);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta-content h2 {
+            font-size: clamp(36px, 4.5vw, 64px);
+            margin-bottom: 32px;
+            line-height: 1.1;
+        }
+
+        .final-cta-content p {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 48px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: 20px 48px;
+            background: transparent;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 60px 0 80px;
+            }
+
+            .results-section,
+            .problem-section,
+            .system-section,
+            .stan-photo-section,
+            .services-section,
+            .results-proof-section,
+            .final-cta-section {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .system-steps {
+                gap: 40px;
+            }
+
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .step-content h3 {
+                font-size: 22px;
+            }
+
+            .step-content p {
+                font-size: 16px;
+            }
+
+            .stan-photo-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stan-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-primary,
+            .cta-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .problem-item {
+                padding: 16px;
+            }
+
+            .problem-item-text {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .result-number {
+                font-size: 36px;
+            }
+
+            .cta-primary {
+                padding: 16px 32px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="eyebrow">Shadow Operator</div>
+                <h1>You Have The Audience.<br>I'll Make It <span class="highlight">Print Money.</span></h1>
+                <p class="hero-subtitle">Your digital products aren't converting like they should. I come in as your shadow operator and turn your existing audience into a 6-figure revenue machine.</p>
+                <a href="https://calendly.com/stan-berger23/30min" class="cta-primary">Book a Strategy Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>You might be just ONE optimization away from results like these:</h2>
+            </div>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">$247K+</div>
+                    <div class="result-label">Revenue Generated</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">3.4x</div>
+                    <div class="result-label">Average ROI Increase</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">87%</div>
+                    <div class="result-label">Conversion Improvement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-content">
+                <h2>You've built an audience, created products...<br>But the sales just aren't there.</h2>
+                <div class="problem-list">
+                    <div class="problem-item">
+                        <div class="problem-item-icon">❌</div>
+                        <div class="problem-item-text">Your content gets views but doesn't convert into paying customers</div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-item-icon">❌</div>
+                        <div class="problem-item-text">Your funnel is leaking money at every stage and you don't know where</div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-item-icon">❌</div>
+                        <div class="problem-item-text">Your offer isn't positioned for premium pricing, leaving thousands on the table</div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-item-icon">❌</div>
+                        <div class="problem-item-text">You're manually managing everything instead of having automated systems</div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-item-icon">❌</div>
+                        <div class="problem-item-text">You have no clear tracking on what's working and what's draining your profits</div>
+                    </div>
+                </div>
+                <p style="font-size: 22px; margin-top: 40px; color: rgba(255,255,255,0.9);">The truth? You don't have an audience problem. You have an <strong>optimization problem</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Section -->
+    <section class="system-section">
+        <div class="container">
+            <div class="system-intro">
+                <h2>The Shadow Operator System</h2>
+                <p>I step in behind the scenes and handle everything that turns your audience into revenue. You keep creating. I handle the money-making.</p>
+            </div>
+            <div class="system-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Content Strategy That Converts</h3>
+                        <p>I audit your current content and build a strategic roadmap that positions you as the obvious choice, primes your audience to buy, and creates demand for your high-ticket offers.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Funnel Optimization</h3>
+                        <p>I rebuild your funnel from the ground up, plugging every leak, optimizing every touchpoint, and engineering a seamless journey from stranger to high-ticket customer.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Offer Optimization</h3>
+                        <p>I reposition your products for premium pricing, craft irresistible offers your audience can't refuse, and structure your product ladder to maximize lifetime customer value.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Sales Tracking & Analytics</h3>
+                        <p>I implement bulletproof tracking systems so you know exactly what's making money, what's not, and where to double down for maximum ROI.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Email Automation</h3>
+                        <p>I build automated email sequences that nurture leads, drive sales on autopilot, and turn one-time buyers into lifelong customers without you lifting a finger.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stan Photo Section -->
+    <section class="stan-photo-section">
+        <div class="container">
+            <div class="stan-photo-container">
+                <div class="stan-image-wrapper">
+                    <img src="image-e10c69f5-d994-4530-809d-97688ebe2d3f.png" alt="Stan Berger" class="stan-image">
+                </div>
+                <div class="stan-bio">
+                    <h2>Meet Stan Berger</h2>
+                    <p>I've spent the last 5 years in the trenches with digital creators, course sellers, and content entrepreneurs. I've seen what works and what doesn't.</p>
+                    <p>Most creators are sitting on goldmines but don't have the systems, strategy, or optimization expertise to extract the value. That's where I come in.</p>
+                    <p>I don't just consult. I operate. I get in the backend of your business and make the changes that drive revenue. No fluff, no theory—just results.</p>
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <div class="credential-icon">✓</div>
+                            <div class="credential-text">Generated $2.1M+ for clients in the past 18 months</div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-icon">✓</div>
+                            <div class="credential-text">Specialized in high-ticket digital product funnels</div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-icon">✓</div>
+                            <div class="credential-text">Certified in advanced funnel psychology & conversion optimization</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I Handle For You</h2>
+                <p>Behind-the-scenes operations that turn your audience into a profit machine</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Content Strategy</h3>
+                    <p>Strategic content planning that builds authority, creates demand, and positions your offers as the obvious solution.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Funnel Optimization</h3>
+                    <p>Complete funnel rebuilds that eliminate leaks, maximize conversions, and turn cold traffic into hot buyers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3>Offer Optimization</h3>
+                    <p>Repositioning and restructuring your offers for premium pricing and maximum perceived value.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Sales Tracking</h3>
+                    <p>Advanced analytics and tracking systems that show you exactly what's driving revenue and what's not.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✉️</div>
+                    <h3>Email Automations</h3>
+                    <p>Sophisticated email sequences that nurture, sell, and retain customers automatically.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Conversion Psychology</h3>
+                    <p>Psychological triggers, persuasion tactics, and conversion principles baked into every touchpoint.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Proof Section -->
+    <section class="results-proof-section">
+        <div class="container">
+            <div class="results-proof-container">
+                <h2>Real Results, Real Revenue</h2>
+                <img src="image-e10c69f5-d994-4530-809d-97688ebe2d3f.png" alt="Stan Berger" class="results-image">
+                <p style="margin-top: 32px; font-size: 18px; color: var(--blue);">I'm Stan Berger, and I've helped dozens of creators transform their audiences into profitable digital product businesses. Let me do the same for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section" id="cta">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2>Ready to Turn Your Audience Into Revenue?</h2>
+                <p>You've built something valuable. Let me show you how to monetize it properly. Book a free strategy call and I'll show you exactly where you're leaving money on the table.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/stan-berger23/30min" class="cta-primary">Book Your Strategy Call</a>
+                    <a href="mailto:stan.berger23@gmail.com" class="cta-secondary">Send Me An Email</a>
+                </div>
+                <p style="font-size: 16px; margin-top: 40px; color: rgba(255,255,255,0.7);">No obligations. No pressure. Just a conversation about your business and where the opp
